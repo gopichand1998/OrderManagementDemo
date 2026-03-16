@@ -38,7 +38,7 @@ public Order(String id) {
     this.id = id;
 }
 
-    public Order(String orderDescription, Customer customer, List<ShoppingCart> cartItems, LocalDateTime dateAt) {
+public Order(String orderDescription, Customer customer, List<ShoppingCart> cartItems, LocalDateTime dateAt, Map<Integer, Integer> stockMap) {
         this.orderDescription = orderDescription;
         this.customer = customer;
         this.cartItems = cartItems;

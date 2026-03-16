@@ -15,7 +15,7 @@ public class Product {
     @GeneratedValue
     private int id;
     private String name;
-    private int availableQuantity;
+    private Map<Integer, Integer> stockMap;
     private float price;
 
     public int getId() {
