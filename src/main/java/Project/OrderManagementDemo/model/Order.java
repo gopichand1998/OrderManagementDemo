@@ -31,8 +31,12 @@ public class Order {
 
 
 
-    public Order() {
+public Order(String id) {
+    if (id == null || id.isEmpty()) {
+        throw new IllegalArgumentException("Order ID cannot be null or empty");
     }
+    this.id = id;
+}
 
     public Order(String orderDescription, Customer customer, List<ShoppingCart> cartItems, LocalDateTime dateAt) {
         this.orderDescription = orderDescription;
