@@ -58,7 +58,9 @@ public class ShoppingCartRestController {
         ResponseOrderDTO responseOrderDTO = new ResponseOrderDTO();
         float amount = orderService.getCartAmount(orderDTO.getCartItems());
 
-        Customer customer = new Customer(orderDTO.getCustomerName(), orderDTO.getCustomerAdress());
+        Customer customer = new Customer();
+customer.setName(orderDTO.getCustomerName());
+customer.setAddress(orderDTO.getCustomerAdress());
        Integer customerIdFromDb = customerService.isCustomerPresent(customer);
         if (customerIdFromDb != null) {
             customer.setId(customerIdFromDb);
@@ -67,7 +69,11 @@ public class ShoppingCartRestController {
              customer = customerService.saveCustomer(customer);
             logger.info("Customer saved.. with id : " + customer.getId());
         }
-        Order order = new Order(orderDTO.getOrderDescription(), customer, orderDTO.getCartItems(),orderDTO.getDateAt());
+        Order order = new Order();
+order.setOrderDescription(orderDTO.getOrderDescription());
+order.setCustomer(customer);
+order.setCartItems(orderDTO.getCartItems());
+order.setDateAt(orderDTO.getDateAt());
         order = orderService.saveOrder(order);
         logger.info("Order processed successfully..");
 
