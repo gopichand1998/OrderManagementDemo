@@ -41,7 +41,7 @@ public class ShoppingCartRestController {
     @GetMapping(value = "/getAllProducts")
     public ResponseEntity<List<Product>> getAllProducts() {
 
-        List<Product> productList = productService.getAllProducts();
+        List<Product> productList = productService.getAllProducts() != null ? productService.getAllProducts() : new ArrayList<>();
 
         return ResponseEntity.ok(productList);
     }
