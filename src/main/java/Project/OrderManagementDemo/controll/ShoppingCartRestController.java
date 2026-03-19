@@ -74,6 +74,8 @@ public class ShoppingCartRestController {
         }
         Order order = new Order(orderDTO.getOrderDescription(), customer, orderDTO.getCartItems(),orderDTO.getDateAt());
         order = orderService.saveOrder(order);
+order.setOrderStatus(OrderStatus.PROCESSING);
+saveOrderStatus(order);
         logger.info("Order processed successfully..");
 
         responseOrderDTO.setAmount(amount);

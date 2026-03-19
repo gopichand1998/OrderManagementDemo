@@ -18,7 +18,8 @@ public class Order {
     @Column(name="date_reserved")
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy-HH:mm:ss")
     @NotNull
-    private LocalDateTime dateAt;
+    private OrderStatus orderStatus = OrderStatus.OPEN;
+      private LocalDateTime dateAt;
 
 
     @ManyToOne(cascade = CascadeType.MERGE)

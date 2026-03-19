@@ -54,7 +54,7 @@ class OrderServiceTest {
         // Run the test
         final Order result = orderServiceUnderTest.getOrderDetail(0);
 
-        // Verify the results
+        // Verify the order status
     }
 
     @Test
@@ -65,7 +65,7 @@ class OrderServiceTest {
         // Run the test
         final Order result = orderServiceUnderTest.getOrderDetail(0);
 
-        // Verify the results
+        // Verify the order status
         assertThat(result).isNull();
     }
 
@@ -81,7 +81,7 @@ class OrderServiceTest {
         // Run the test
         final float result = orderServiceUnderTest.getCartAmount(shoppingCartList);
 
-        // Verify the results
+        // Verify the order status
         assertThat(result).isEqualTo(0.0f, within(0.0001f));
         verify(mockProductRepository).save(any(Product.class));
     }
@@ -95,7 +95,7 @@ class OrderServiceTest {
         // Run the test
         final float result = orderServiceUnderTest.getCartAmount(shoppingCartList);
 
-        // Verify the results
+        // Verify the order status
         assertThat(result).isEqualTo(0.0f, within(0.0001f));
     }
 
@@ -123,6 +123,6 @@ class OrderServiceTest {
         // Run the test
         final Order result = orderServiceUnderTest.saveOrder(order);
 
-        // Verify the results
+        // Verify the order status
     }
 }
