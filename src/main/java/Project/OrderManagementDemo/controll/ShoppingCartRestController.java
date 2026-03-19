@@ -64,7 +64,12 @@ public class ShoppingCartRestController {
             customer.setId(customerIdFromDb != null ? customerIdFromDb : -1);
             logger.info("Customer already present in db with id : " + customerIdFromDb);
         }else{
-             customer = customerService.saveCustomer(customer);
+             if (customer == null) {
+                customer = new Customer();
+                customer.setName(orderDTO.getCustomerName());
+                customer.setAdress(orderDTO.getCustomerAdress());
+                customer = customerService.saveCustomer(customer);
+            }
             logger.info("Customer saved.. with id : " + customer.getId());
         }
         Order order = new Order(orderDTO.getOrderDescription(), customer, orderDTO.getCartItems(),orderDTO.getDateAt());
