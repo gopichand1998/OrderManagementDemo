@@ -61,7 +61,7 @@ public class ShoppingCartRestController {
         Customer customer = new Customer(orderDTO.getCustomerName(), orderDTO.getCustomerAdress());
        Integer customerIdFromDb = customerService.isCustomerPresent(customer);
         if (customerIdFromDb != null) {
-            customer.setId(customerIdFromDb);
+            customer.setId(customerIdFromDb != null ? customerIdFromDb : -1);
             logger.info("Customer already present in db with id : " + customerIdFromDb);
         }else{
              customer = customerService.saveCustomer(customer);
