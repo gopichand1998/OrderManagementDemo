@@ -58,7 +58,7 @@ public class ShoppingCartRestController {
         ResponseOrderDTO responseOrderDTO = new ResponseOrderDTO();
         float amount = orderService.getCartAmount(orderDTO.getCartItems());
 
-        Customer customer = new Customer(orderDTO.getCustomerName(), orderDTO.getCustomerAdress());
+        Customer customer = orderDTO.getCustomer() != null ? orderDTO.getCustomer() : new Customer(orderDTO.getCustomerName(), orderDTO.getCustomerAdress());
        Integer customerIdFromDb = customerService.isCustomerPresent(customer);
         if (customerIdFromDb != null) {
             customer.setId(customerIdFromDb != null ? customerIdFromDb : -1);
