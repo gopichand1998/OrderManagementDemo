@@ -52,7 +52,7 @@ class ShoppingCartRestControllerTest {
                         .accept(MediaType.APPLICATION_JSON))
                         .andReturn().getResponse();
         // Verify the results
-        assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
+        assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());\nOrderStatusResponse orderStatusResponse = objectMapper.readValue(response.getContentAsString(), OrderStatusResponse.class);\nassertEquals('CREATED', orderStatusResponse.getStatus());
     }
 
     @Test
@@ -64,7 +64,7 @@ class ShoppingCartRestControllerTest {
                         .accept(MediaType.APPLICATION_JSON))
                         .andReturn().getResponse();
         // Verify the results
-        assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
+        assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());\nOrderStatusResponse orderStatusResponse = objectMapper.readValue(response.getContentAsString(), OrderStatusResponse.class);\nassertEquals('CREATED', orderStatusResponse.getStatus());
         assertThat(response.getContentAsString()).isEqualTo("[]");
     }
 
@@ -91,7 +91,7 @@ class ShoppingCartRestControllerTest {
                          .andReturn().getResponse();
 
         // Verify the results
-        assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
+        assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());\nOrderStatusResponse orderStatusResponse = objectMapper.readValue(response.getContentAsString(), OrderStatusResponse.class);\nassertEquals('CREATED', orderStatusResponse.getStatus());
         assertThat(response.getContentAsString()).isEqualTo("");
     }
 
@@ -136,7 +136,7 @@ class ShoppingCartRestControllerTest {
                         .andReturn().getResponse();
         // Verify the results
         assertNotNull(response);
-        assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
+        assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());\nOrderStatusResponse orderStatusResponse = objectMapper.readValue(response.getContentAsString(), OrderStatusResponse.class);\nassertEquals('CREATED', orderStatusResponse.getStatus());
     }
 
     @Test
@@ -180,7 +180,7 @@ class ShoppingCartRestControllerTest {
                 .andReturn().getResponse();
 
         // Verify the results
-        assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
+        assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());\nOrderStatusResponse orderStatusResponse = objectMapper.readValue(response.getContentAsString(), OrderStatusResponse.class);\nassertEquals('CREATED', orderStatusResponse.getStatus());
       //  assertThat(response.getContentAsString()).isEqualTo("expectedResponse");
     }
 }
