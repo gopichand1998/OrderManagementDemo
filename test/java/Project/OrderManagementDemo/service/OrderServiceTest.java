@@ -35,7 +35,12 @@ class OrderServiceTest {
     @BeforeEach
     void setUp() {
         orderServiceUnderTest = new OrderService(mockOrderRepository, mockProductRepository);
-    }
+    public void testProcessOrder() {...}
+
+public void testShipOrder() {...}
+
+public void testDeliverOrder() {...}
+}
 
     @Test
     void testGetOrderDetail() {
@@ -55,7 +60,12 @@ class OrderServiceTest {
         final Order result = orderServiceUnderTest.getOrderDetail(0);
 
         // Verify the results
-    }
+    public void testProcessOrder() {...}
+
+public void testShipOrder() {...}
+
+public void testDeliverOrder() {...}
+}
 
     @Test
     void testGetOrderDetail_OrderRepositoryReturnsAbsent() {
@@ -67,7 +77,12 @@ class OrderServiceTest {
 
         // Verify the results
         assertThat(result).isNull();
-    }
+    public void testProcessOrder() {...}
+
+public void testShipOrder() {...}
+
+public void testDeliverOrder() {...}
+}
 
     @Test
     void testGetCartAmount() {
@@ -84,7 +99,12 @@ class OrderServiceTest {
         // Verify the results
         assertThat(result).isEqualTo(0.0f, within(0.0001f));
         verify(mockProductRepository).save(any(Product.class));
-    }
+    public void testProcessOrder() {...}
+
+public void testShipOrder() {...}
+
+public void testDeliverOrder() {...}
+}
 
     @Test
     void testGetCartAmount_ProductRepositoryFindByIdReturnsAbsent() {
@@ -97,7 +117,12 @@ class OrderServiceTest {
 
         // Verify the results
         assertThat(result).isEqualTo(0.0f, within(0.0001f));
-    }
+    public void testProcessOrder() {...}
+
+public void testShipOrder() {...}
+
+public void testDeliverOrder() {...}
+}
 
     @Test
     void testSaveOrder() {
@@ -124,5 +149,15 @@ class OrderServiceTest {
         final Order result = orderServiceUnderTest.saveOrder(order);
 
         // Verify the results
-    }
+    public void testProcessOrder() {...}
+
+public void testShipOrder() {...}
+
+public void testDeliverOrder() {...}
+}
+public void testProcessOrder() {...}
+
+public void testShipOrder() {...}
+
+public void testDeliverOrder() {...}
 }
