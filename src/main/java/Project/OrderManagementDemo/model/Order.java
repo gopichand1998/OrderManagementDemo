@@ -39,6 +39,7 @@ public class Order {
         this.customer = customer;
         this.cartItems = cartItems;
         this.dateAt = dateAt;
+        this.cartItems.forEach(cartItem -> cartItem.setOrder(this));
     }
 
 
@@ -82,5 +83,14 @@ public class Order {
 
     public void setCartItems(List<ShoppingCart> cartItems) {
         this.cartItems = cartItems;
+    }
+
+    public void addCartItems(ShoppingCart cartItem) {
+        this.cartItems.add(cartItem);
+        cartItem.setOrder(this);
+    }
+    public void removeCartItems(ShoppingCart cartItem) {
+        this.cartItems.remove(cartItem);
+        cartItem.setOrder(null);
     }
 }
